@@ -1,7 +1,7 @@
 import memoryfs from 'memory-fs'
 import path from 'path'
 import webpack from 'webpack'
-import Plugin from '../src'
+import { VueSeparatePlugin } from '../src'
 
 export default (fixture, options = {}) => {
   const compiler = webpack({
@@ -13,7 +13,7 @@ export default (fixture, options = {}) => {
     },
     resolve: {
       plugins: [
-        new Plugin({
+        new VueSeparatePlugin({
           root: '__fixtures__'
         })
       ]
