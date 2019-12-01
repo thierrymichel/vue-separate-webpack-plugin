@@ -1,9 +1,9 @@
 # vue-separate-webpack-plugin
 
-> Are you a Vue.js fan?
-> Do you believe in separation of concerns **AND files**?
-> Do you use webpack?
-> …
+> Are you a Vue.js fan?<br>
+> Do you believe in separation of concerns **AND files**?<br>
+> Do you use webpack?<br>
+> …<br>
 > You probably need this plugin… 😎
 
 ![stability-wip](https://img.shields.io/badge/stability-work_in_progress-lightgrey.svg?style=flat-square)
@@ -35,7 +35,7 @@ yarn add -D vue-separate-webpack-plugin
 ```js
 // webpack.config.js
 
-const VueSeparatePlugin = require('vue-separate-webpack-plugin')
+const { VueSeparatePlugin } = require('vue-separate-webpack-plugin')
 
 module.exports = {
   resolve: {
@@ -48,7 +48,8 @@ module.exports = {
 
 ```js
 // vue.config.js
-const VueSeparatePlugin = require('./dev/plugin')
+
+const { VueSeparatePlugin } = require('./dev/plugin')
 
 module.exports = {
   chainWebpack: config => {
