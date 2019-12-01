@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["dom"],
+    "esModuleInterop": true
+  },
+  "include": ["__tests__/**/*.test.ts", "src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

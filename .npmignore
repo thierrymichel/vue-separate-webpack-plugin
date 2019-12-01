@@ -1,0 +1,19 @@
+### Custom ###
+
+/__fixtures__
+/__mocks__
+/__tests__
+/.circleci
+/.vscode
+/coverage
+/src
+/.editorconfig
+/.lintstagedrc.js
+/.markdownlint.json
+/commitlint.config.js
+/jest.config.js
+/NOTES.md
+/prettier.config.js
+/tsconfig.json
+/tsconfig.test.json
+/tslint.json

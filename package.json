@@ -1,0 +1,86 @@
+{
+  "name": "vue-separate-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Build virtual SFCs for Vue.js and webpack",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "vue",
+    "vue.js",
+    "webpack",
+    "plugin",
+    "separation"
+  ],
+  "homepage": "https://github.com/thierrymichel/vue-separate-webpack-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/thierrymichel/vue-separate-webpack-plugin/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/thierrymichel/vue-separate-webpack-plugin.git"
+  },
+  "author": {
+    "name": "Thierry Michel",
+    "email": "thmichel@gmail.com",
+    "url": "http://thierrymichel.net"
+  },
+  "license": "SEE LICENSE IN UNLICENSE",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "clean": "rimraf dist",
+    "commit": "npx git-cz || exit 0",
+    "commit-retry": "npx git-cz --retry || exit 0",
+    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "dev": "yarn build:watch",
+    "lint": "tslint src/**/*.ts",
+    "lint:staged": "lint-staged",
+    "prerelease": "npm-run-all lint clean build test",
+    "release": "standard-version",
+    "start": "npm-run-all clean dev",
+    "test": "yarn unit",
+    "unit": "jest --coverage",
+    "unit:ci": "jest --coverage --maxWorkers=2",
+    "unit:watch": "jest --watch --verbose false"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-ccgls"
+    },
+    "cz-ccgls": {
+      "useScopes": false
+    }
+  },
+  "dependencies": {
+    "junk": "^3.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@types/jest": "^24.0.23",
+    "@types/memory-fs": "^0.3.2",
+    "@types/webpack": "^4.41.0",
+    "commitizen": "^4.0.3",
+    "commitlint-config-ccgls": "^1.1.2",
+    "coveralls": "^3.0.9",
+    "cz-ccgls": "^0.2.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "standard-version": "^7.0.1",
+    "ts-jest": "^24.2.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2",
+    "typescript-tslint-plugin": "^0.5.5",
+    "webpack": "^4.41.2"
+  }
+}
