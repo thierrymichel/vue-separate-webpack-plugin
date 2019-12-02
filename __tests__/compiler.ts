@@ -12,11 +12,7 @@ export default (fixture, options = {}) => {
       path: path.resolve(__dirname)
     },
     resolve: {
-      plugins: [
-        new VueSeparatePlugin({
-          root: '__fixtures__'
-        })
-      ]
+      plugins: [new VueSeparatePlugin(options)]
     }
   })
 

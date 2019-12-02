@@ -12,19 +12,15 @@ let inode = 45000000
  */
 // https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html
 export class VueSeparatePlugin {
+  private header: string
   private root: string
-  private source: string
-  private target: string
+  private source: string = 'file'
+  private target: string = 'existing-file'
 
   /* istanbul ignore next */
-  constructor({
-    root = 'src',
-    source = 'file',
-    target = 'existing-file'
-  } = {}) {
+  constructor({ header = '', root = 'src' } = {}) {
+    this.header = header
     this.root = root
-    this.source = source
-    this.target = target
   }
 
   public apply(resolver: any) {
@@ -106,7 +102,11 @@ export class VueSeparatePlugin {
    * Create content for SFC with `<tag src=""></tag>`
    */
   private createContent(files: string[]) {
-    let content = '/* eslint-disable */\n'
+    let content = ''
+
+    if (this.header !== '') {
+      content += this.header
+    }
 
     content += files
       // Create file content.
