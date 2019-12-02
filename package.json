@@ -1,6 +1,6 @@
 {
   "name": "vue-separate-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Build virtual SFCs for Vue.js and webpack",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
