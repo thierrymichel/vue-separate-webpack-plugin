@@ -85,17 +85,23 @@ export class VueSeparatePlugin {
    */
   private getSources(filePath: string) {
     const dir = path.dirname(filePath)
-    const files = fs.readdirSync(dir)
 
-    return files
-      .filter(file => {
-        const ext = path.extname(file).replace(/^\./, '')
-        // Check for [module.vue][.attribute[s]].extension
-        const match = new RegExp(`${path.basename(filePath)}.*\\.${ext}$`)
+    try {
+      const files = fs.readdirSync(dir)
 
-        return junk.not(file) && match.test(file)
-      })
-      .map(file => path.join(dir, file))
+      return files
+        .filter(file => {
+          const ext = path.extname(file).replace(/^\./, '')
+          // Check for [module.vue][.attribute[s]].extension
+          const match = new RegExp(`${path.basename(filePath)}.*\\.${ext}$`)
+
+          return junk.not(file) && match.test(file)
+        })
+        .map(file => path.join(dir, file))
+    } catch (error) {
+      /* istanbul ignore next */
+      return []
+    }
   }
 
   /**
